@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>-------</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body>
+		<table class="table table-dark responsive">
+			<thead>
+				<tr>
+					<th scope="col"></th>
+					<th scope="col">Talleres</th>
+					<th scope="col">Parciales</th>
+					<th scope="col">Semestral</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">Nota 1</th>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="taller1"></td>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial1"></td>
+					<td rowspan="3"><p class="text-center" id="semestral">Debes sacar: </p></td>
+				</tr>
+				<tr>
+					<th scope="row">Nota 2</th>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="taller2"></td>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial2"></td>
+				</tr>
+				<tr>
+					<th scope="row">Nota 3</th>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="taller3"></td>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial3"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table table-dark responsive">
+			
+			<tbody>
+				<tr>
+					<th scope="col">Total :</th>
+					<td><p id="totalt">0</p></td>
+					<td><p id="totalp">0</p></td>
+					<td><p></p></td>
+					
+				</tr>
+			</tbody>
+		</table>
+
+		<script type="text/javascript">
+			let taller1 = document.getElementById("taller1");
+			let taller2 = document.getElementById("taller2");
+			let taller3 = document.getElementById("taller3");
+			let parcial1 = document.getElementById("parcial1");
+			let parcial2 = document.getElementById("parcial2");
+			let parcial3 = document.getElementById("parcial3");
+			let semestral = document.getElementById("semestral");
+			let totalt = document.getElementById("totalt");
+			let totalp = document.getElementById("totalp");
+
+			let tt1=parseInt(taller1.value);
+			let tt2=parseInt(taller2.value);
+			let tt3=parseInt(taller3.value);
+			let pp1=parseInt(parcial1.value);
+			let pp2=parseInt(parcial2.value);
+			let pp3=parseInt(parcial3.value);
+
+			let ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+
+			semestral.innerText = "Debes sacar: "+ss;
+			totalt.innerText = (tt3+tt2+tt1)*35/300+"% de 35%";
+			totalp.innerText = (pp3+pp2+pp1)*30/300+"% de 30%";
+
+			taller1.addEventListener("change",()=>{
+				tt1 = parseInt(taller1.value);
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
+				
+			});
+
+			taller2.addEventListener("change",()=>{
+				tt2 = parseInt(taller2.value);
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
+			});
+
+			taller3.addEventListener("change",()=>{
+				tt3 =parseInt(taller3.value);
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
+			});
+
+
+			parcial1.addEventListener("change",()=>{
+				pp1 =parseInt(parcial1.value);
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
+			});
+
+			parcial2.addEventListener("change",()=>{
+				pp2 = parseInt(parcial2.value);
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
+			});
+
+			parcial3.addEventListener("change",()=>{
+				pp3 = parseInt(parcial3.value);
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
+			});
+
+		</script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+</html>
