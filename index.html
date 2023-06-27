@@ -67,7 +67,7 @@
 			let pp2=parseInt(parcial2.value);
 			let pp3=parseInt(parcial3.value);
 
-			let ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+			let ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 
 			semestral.innerText = "Debes sacar: "+ss;
 			totalt.innerText = (tt3+tt2+tt1)*35/300+"% de 35%";
@@ -75,7 +75,7 @@
 
 			taller1.addEventListener("change",()=>{
 				tt1 = parseInt(taller1.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
 				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
 				
@@ -83,14 +83,14 @@
 
 			taller2.addEventListener("change",()=>{
 				tt2 = parseInt(taller2.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
 				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
 			});
 
 			taller3.addEventListener("change",()=>{
 				tt3 =parseInt(taller3.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
 				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
 			});
@@ -98,21 +98,21 @@
 
 			parcial1.addEventListener("change",()=>{
 				pp1 =parseInt(parcial1.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
 				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
 			});
 
 			parcial2.addEventListener("change",()=>{
 				pp2 = parseInt(parcial2.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
 				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
 			});
 
 			parcial3.addEventListener("change",()=>{
 				pp3 = parseInt(parcial3.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/30));
+				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
 				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
 			});
