@@ -11,27 +11,32 @@
 			<thead>
 				<tr>
 					<th scope="col"></th>
-					<th scope="col">Talleres</th>
-					<th scope="col">Parciales</th>
+					<th scope="col">Parciales Teoria</th>
+					<th scope="col">% Laboratorio</th>
 					<th scope="col">Semestral</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<th scope="row">Nota 1</th>
-					<td><input value="0" class="form-control" min="0" max="100" type="number" id="taller1"></td>
 					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial1"></td>
-					<td rowspan="3"><p class="text-center" id="semestral">Debes sacar: </p></td>
+					<td rowspan="4"><input value="0" class="form-control" min="0" max="100" type="number" id="lab"></td>
+					<td rowspan="4"><p class="text-center" id="semestral">Debes sacar: </p></td>
 				</tr>
 				<tr>
 					<th scope="row">Nota 2</th>
-					<td><input value="0" class="form-control" min="0" max="100" type="number" id="taller2"></td>
 					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial2"></td>
+					
 				</tr>
 				<tr>
 					<th scope="row">Nota 3</th>
-					<td><input value="0" class="form-control" min="0" max="100" type="number" id="taller3"></td>
 					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial3"></td>
+					
+				</tr>
+				<tr>
+					<th scope="row">Nota 4</th>
+					<td><input value="0" class="form-control" min="0" max="100" type="number" id="parcial4"></td>
+					
 				</tr>
 			</tbody>
 		</table>
@@ -42,7 +47,7 @@
 				<tr>
 					<th scope="col">Total :</th>
 					<td><p id="totalt">0</p></td>
-					<td><p id="totalp">0</p></td>
+					<td><p id="totall">0</p></td>
 					<td><p></p></td>
 					
 				</tr>
@@ -50,71 +55,66 @@
 		</table>
 
 		<script type="text/javascript">
-			let taller1 = document.getElementById("taller1");
-			let taller2 = document.getElementById("taller2");
-			let taller3 = document.getElementById("taller3");
 			let parcial1 = document.getElementById("parcial1");
 			let parcial2 = document.getElementById("parcial2");
 			let parcial3 = document.getElementById("parcial3");
+			let parcial4 = document.getElementById("parcial4");
+			
+			let lab = document.getElementById("lab");
+
 			let semestral = document.getElementById("semestral");
 			let totalt = document.getElementById("totalt");
-			let totalp = document.getElementById("totalp");
+			let totall = document.getElementById("totall");
 
-			let tt1=parseInt(taller1.value);
-			let tt2=parseInt(taller2.value);
-			let tt3=parseInt(taller3.value);
 			let pp1=parseInt(parcial1.value);
 			let pp2=parseInt(parcial2.value);
 			let pp3=parseInt(parcial3.value);
+			let pp4=parseInt(parcial4.value);
 
-			let ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
+			let labo=parseInt(lab.value);
+
+			let ss=(100-((100-(65-(((pp1+pp2+pp3+pp4)*30/400)+((labo)*35/100))) -71)*100/35));
 
 			semestral.innerText = "Debes sacar: "+ss;
-			totalt.innerText = (tt3+tt2+tt1)*35/300+"% de 35%";
-			totalp.innerText = (pp3+pp2+pp1)*30/300+"% de 30%";
-
-			taller1.addEventListener("change",()=>{
-				tt1 = parseInt(taller1.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
-				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
-				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
-				
-			});
-
-			taller2.addEventListener("change",()=>{
-				tt2 = parseInt(taller2.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
-				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
-				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
-			});
-
-			taller3.addEventListener("change",()=>{
-				tt3 =parseInt(taller3.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
-				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
-				totalt.innerText = Math.round((tt3+tt2+tt1)*35/300)+"% de 35%";
-			});
+			totalt.innerText = (pp3+pp2+pp1+pp4)*30/400+"% de 30%";
+			totall.innerText = (labo)*35/100+"% de 35%";
 
 
 			parcial1.addEventListener("change",()=>{
-				pp1 =parseInt(parcial1.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
+				pp1 = parseInt(parcial1.value);
+				ss=(100-((100-(65-(((pp1+pp2+pp3+pp4)*30/400)+((labo)*35/100))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
-				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
+				totalt.innerText = (pp3+pp2+pp1+pp4)*30/400+"% de 30%";
 			});
 
 			parcial2.addEventListener("change",()=>{
 				pp2 = parseInt(parcial2.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
+				ss=(100-((100-(65-(((pp1+pp2+pp3+pp4)*30/400)+((labo)*35/100))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
-				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
+				totalt.innerText = (pp3+pp2+pp1+pp4)*30/400+"% de 30%";
 			});
 
 			parcial3.addEventListener("change",()=>{
-				pp3 = parseInt(parcial3.value);
-				ss=(100-((100-(65-(((tt3+tt2+tt1)*35/300)+((pp3+pp2+pp1)*30/300))) -71)*100/35));
+				pp3 =parseInt(parcial3.value);
+				ss=(100-((100-(65-(((pp1+pp2+pp3+pp4)*30/400)+((labo)*35/100))) -71)*100/35));
 				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
-				totalp.innerText = Math.round((pp3+pp2+pp1)*30/300)+"% de 30%";
+				totalt.innerText = (pp3+pp2+pp1+pp4)*30/400+"% de 30%";
+			});
+
+
+			parcial4.addEventListener("change",()=>{
+				pp4 =parseInt(parcial4.value);
+				ss=(100-((100-(65-(((pp1+pp2+pp3+pp4)*30/400)+((labo)*35/100))) -71)*100/35));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totalt.innerText = (pp3+pp2+pp1+pp4)*30/400+"% de 30%";
+			});
+
+
+			lab.addEventListener("change",()=>{
+				labo = parseInt(lab.value);
+				ss=(100-((100-(65-(((pp1+pp2+pp3+pp4)*30/400)+((labo)*35/100))) -71)*100/35));
+				semestral.innerText = "Debes sacar: "+Math.round(ss) ;
+				totall.innerText = ((labo)*35/100)+"% de 35%";
 			});
 
 		</script>
